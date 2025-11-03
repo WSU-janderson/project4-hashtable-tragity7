@@ -4,7 +4,7 @@
 * Project 4: Hash Table
 *
 * HashTable.h
-* header file
+* header file that declares the HashTable and HashTableBucket classes
 */
 
 #ifndef HASHTABLE_H
@@ -17,8 +17,14 @@
 #include <random>
 #include <algorithm>
 
+// state of bucket
 enum BucketType { NORMAL, ESS, EAR };
 
+
+/**
+ * class HashTableBucket - represents a single entry in the hash table
+ * each bucket stores a string key, an associated size_t value, and a BucketType (state)
+ */
 class HashTableBucket {
 private:
     std::string key;
@@ -46,6 +52,11 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const HashTableBucket& bucket);
 };
 
+/**
+ * class HashTable - implements a hash table 
+ * the hash table automatically rehashes (doubles capacity) when the load factor exceeds 0.5
+ * our collision resolution policy is pseudo random probing
+ */
 class HashTable {
 private:
     std::vector<HashTableBucket> tableData;
