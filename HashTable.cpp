@@ -1,6 +1,11 @@
 /**
- * HashTable.cpp
- */
+* Sidra Ali 
+* CS3100 - Data Structures and Algorithms
+* Project 4: Hash Table
+*
+* HashTable.cpp
+* defines the member functions of the HashTable and HashTableBucket classes
+*/
 
 #include "HashTable.h"
 
