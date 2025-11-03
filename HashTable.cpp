@@ -98,3 +98,8 @@ bool HashTable::remove(const std::string& key) {
     }
     return false;
 }
+
+bool HashTable::contains(const std::string& key) const {
+    size_t idx = probeIndex(key);
+    return idx < tableData.size();
+}
