@@ -22,4 +22,35 @@ METHODS U HAVE TO MAKE:
 - size_t HashTable::capacity() const
 - size_t HashTable::size() const
 
-OPERATOR AND DATA STORAGE:
+----------------------------------------------
+
+HASH TABLE BUCKET
+- implement HashTableBucket to store each key-pair value. it needs to store a std::string for the key and an size_t for the value. 
+- have a way to indicate whether the bucket is:
+• Normal – the bucket is non-empty and currently storing a key-value pair
+• Empty Since Start (ESS) – the bucket has never had a key-value pair
+• Empty After Remove (EAR) – the bucket previously stored a key-value pair, but that pair was later removed from the table.
+do this by using enum BucketType {NORMAL, ESS, EAR};
+
+METHODS U NEED TO HAVE:
+- HashTableBucket::HashTableBucket()
+- HashTableBucket::HashTableBucket(const std::string& key, const size_t& value)
+- void HashTableBucket::load(const std::string& key, const size_t& value)
+- bool HashTableBucket::isEmpty() const
+- friend ostream& operator<<(ostream& os, const HashTableBucket& bucket)
+
+THINGS U CAN ADD:
+In addition to these suggestions, you could also:
+- provide accessors (getters) and mutators (setters) for the member data
+- have methods to change the bucket type, such as makeNormal(), makeESS(), and makeEAR()
+- add isEmptySinceStart() and isEmptyAfterRemove() which could check for each of those conditions, and an isEmpty() which just checks whether the bucket is normal or empty
+
+-------------------------------------------
+
+RANDOM PROBING:
+
+- store the probe offsets in a std::vector of size_t, which could look like: std::vector<size_t> offsets;
+- for a table with N = 10, we want the vector to store the values from N = 1 to N = N - 1 = 9, shuffled in a random order
+- hash table needs dynamically grow as the user inserts data. initial table capacity is 8, so size of your std::vector is 8 empty buckets (for chaining it will be 8 empty lists of buckets). double the size of your std::vector when necessary. The table will need to be resized once the load factor (alpha) reaches or exceeds 0.5. generate a resized offsets array
+
+
