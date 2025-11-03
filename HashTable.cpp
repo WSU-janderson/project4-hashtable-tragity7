@@ -103,3 +103,10 @@ bool HashTable::contains(const std::string& key) const {
     size_t idx = probeIndex(key);
     return idx < tableData.size();
 }
+
+std::optional<size_t> HashTable::get(const std::string& key) const {
+    size_t idx = probeIndex(key);
+    if (idx < tableData.size())
+        return tableData[idx].getValue();
+    return std::nullopt;
+}
