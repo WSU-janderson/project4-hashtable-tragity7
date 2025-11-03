@@ -73,4 +73,28 @@ void HashTable::rehash() {
     }
 }
 
+bool HashTable::insert(const std::string& key, const size_t& value) {
+    if (alpha() >= 0.5)
+        rehash();
 
+    if (contains(key))
+        return false;
+
+    size_t idx = probeIndex(key, true);
+    if (idx >= tableData.size())
+        return false; // table full
+
+    tableData[idx].load(key, value);
+    numElements++;
+    return true;
+}
+
+bool HashTable::remove(const std::string& key) {
+    size_t idx = probeIndex(key);
+    if (idx < tableData.size()) {
+        tableData[idx].makeEAR();
+        numElements--;
+        return true;
+    }
+    return false;
+}
