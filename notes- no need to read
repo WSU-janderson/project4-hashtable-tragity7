@@ -1,0 +1,5 @@
+- use std::strings for keys and size_t for values
+- fix the types of the key and value to strings and integers
+- use a C++ std::vector to store hash table data
+- collision resolution policy: pseudo-random probing
+- implement an operator to print out the hashtable (does not have access to the private data of HashTable)
