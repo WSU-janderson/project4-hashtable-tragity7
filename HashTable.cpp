@@ -51,13 +51,23 @@ size_t HashTable::hashFunction(const std::string& key) const {
     return hashFn(key) % tableData.size();
 }
 
-void HashTable::generateOffsets(size_t capacity) {
-    offsets.clear();
-    for (size_t i = 1; i < capacity; ++i)
-        offsets.push_back(i);
+    void HashTable::generateOffsets(size_t capacity) {
+        offsets.clear();
+        for (size_t i = 1; i < capacity; ++i)
+            offsets.push_back(i);
 
-    // function to randomize
-}
+        // Simple deterministic pseudo-random shuffle using LCG
+        unsigned int seed = 12345; // <-- hardcoded seed
+        auto randomPattern = [&seed]() {
+            seed = (1103515245 * seed + 12345) & 0x7fffffff;
+            return seed;
+        };
+
+        for (size_t i = offsets.size() - 1; i > 0; --i) {
+            size_t j = randomPattern() % (i + 1);
+            std::swap(offsets[i], offsets[j]);
+        }
+    }
 
 void HashTable::rehash() {
     size_t newCapacity = tableData.size() * 2;
