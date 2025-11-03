@@ -31,4 +31,14 @@ void HashTableBucket::makeNormal() { type = NORMAL; }
 void HashTableBucket::makeESS() { type = ESS; }
 void HashTableBucket::makeEAR() { type = EAR; }
 
+std::ostream& operator<<(std::ostream& os, const HashTableBucket& bucket) {
+    if (bucket.type == NORMAL)
+        os << "(" << bucket.key << ", " << bucket.value << ")";
+    else if (bucket.type == EAR)
+        os << "[EAR]";
+    else
+        os << "[ESS]";
+    return os;
+}
+
 
