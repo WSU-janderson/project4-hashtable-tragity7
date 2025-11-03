@@ -15,3 +15,16 @@ void HashTableBucket::load(const std::string& k, const size_t& v) {
     type = NORMAL;
 }
 
+bool HashTableBucket::isEmpty() const {
+    return type != NORMAL;
+}
+
+bool HashTableBucket::isEmptySinceStart() const {
+    return type == ESS;
+}
+
+bool HashTableBucket::isEmptyAfterRemove() const {
+    return type == EAR;
+}
+
+
