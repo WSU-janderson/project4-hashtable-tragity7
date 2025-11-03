@@ -1,6 +1,11 @@
 /**
- * HashTable.h
- */
+* Sidra Ali
+* CS3100 - Data Structures and Algorithms
+* Project 4: Hash Table
+*
+* HashTable.h
+* header file
+*/
 
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
