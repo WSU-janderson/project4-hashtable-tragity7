@@ -53,4 +53,16 @@ RANDOM PROBING:
 - for a table with N = 10, we want the vector to store the values from N = 1 to N = N - 1 = 9, shuffled in a random order
 - hash table needs dynamically grow as the user inserts data. initial table capacity is 8, so size of your std::vector is 8 empty buckets (for chaining it will be 8 empty lists of buckets). double the size of your std::vector when necessary. The table will need to be resized once the load factor (alpha) reaches or exceeds 0.5. generate a resized offsets array
 
+--------------------------------------------
+
+TIME COMPLEXITY ANALYSIS
+
+I'm using all of:
+• insert
+• remove
+• contains
+• get
+• operator[]
+so I need to do it for all 5. I'm guessing I should write best case and worst case
+
 
