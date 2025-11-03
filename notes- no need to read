@@ -3,3 +3,23 @@
 - use a C++ std::vector to store hash table data
 - collision resolution policy: pseudo-random probing
 - implement an operator to print out the hashtable (does not have access to the private data of HashTable)
+
+-----------------------------------------------
+
+HASH TABLE CLASS
+implement class HashTable in a header named HashTable.h and source file named HashTable.cpp
+- header file will contain the class declaration with all member variables and methods
+
+METHODS U HAVE TO MAKE:
+- HasTable::HashTable(size_t initCapacity = 8)
+- bool HashTable::insert(const std::string$ key, const size_t& value)
+- bool HashTable::remove(const std::string& key)
+- bool HashTable::contains(const string& key) const 
+- std::optional<size_t> HashTable::get(const string& key) const
+- size_t& HashTable::operator[](const string& key)
+- std::vector<std::string> HashTable::keys() const
+- double HashTable::alpha() const
+- size_t HashTable::capacity() const
+- size_t HashTable::size() const
+
+OPERATOR AND DATA STORAGE:
