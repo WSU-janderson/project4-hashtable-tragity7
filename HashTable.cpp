@@ -138,4 +138,11 @@ size_t HashTable::size() const {
     return numElements;
 }
 
+std::ostream& operator<<(std::ostream& os, const HashTable& ht) {
+    for (size_t i = 0; i < ht.tableData.size(); ++i) {
+        os << "[" << i << "]: " << ht.tableData[i] << "\n";
+    }
+    return os;
+}
+
 
