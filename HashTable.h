@@ -24,7 +24,19 @@ public:
     HashTableBucket();
     HashTableBucket(const std::string& key, const size_t& value);
 
-// add functions
+    void load(const std::string& key, const size_t& value);
+    bool isEmpty() const;
+    bool isEmptySinceStart() const;
+    bool isEmptyAfterRemove() const;
+
+    void makeNormal();
+    void makeESS();
+    void makeEAR();
+
+    const std::string& getKey() const { return key; }
+    size_t& getValue() { return value; }
+    const size_t& getValue() const { return value; }
+    BucketType getType() const { return type; }
 
     friend std::ostream& operator<<(std::ostream& os, const HashTableBucket& bucket);
 };
