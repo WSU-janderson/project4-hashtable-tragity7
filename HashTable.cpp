@@ -27,4 +27,8 @@ bool HashTableBucket::isEmptyAfterRemove() const {
     return type == EAR;
 }
 
+void HashTableBucket::makeNormal() { type = NORMAL; }
+void HashTableBucket::makeESS() { type = ESS; }
+void HashTableBucket::makeEAR() { type = EAR; }
+
 
