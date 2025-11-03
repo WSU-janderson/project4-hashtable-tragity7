@@ -43,7 +43,14 @@ public:
 
 class HashTable {
 private:
-// add private variables
+    std::vector<HashTableBucket> tableData;
+    std::vector<size_t> offsets;
+    size_t numElements;
+
+    size_t hashFunction(const std::string& key) const;
+    void generateOffsets(size_t capacity);
+    void rehash();
+    size_t probeIndex(const std::string& key, bool forInsert = false) const;
 
 public:
 // add public variables
