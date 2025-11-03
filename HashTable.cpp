@@ -126,3 +126,16 @@ std::vector<std::string> HashTable::keys() const {
     return k;
 }
 
+double HashTable::alpha() const {
+    return static_cast<double>(numElements) / tableData.size();
+}
+
+size_t HashTable::capacity() const {
+    return tableData.size();
+}
+
+size_t HashTable::size() const {
+    return numElements;
+}
+
+
