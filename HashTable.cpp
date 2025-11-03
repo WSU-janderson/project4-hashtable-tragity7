@@ -117,3 +117,12 @@ size_t& HashTable::operator[](const std::string& key) {
         return tableData[idx].getValue();
     throw std::out_of_range("Key not found");
 }
+
+std::vector<std::string> HashTable::keys() const {
+    std::vector<std::string> k;
+    for (const auto& b : tableData)
+        if (!b.isEmpty())
+            k.push_back(b.getKey());
+    return k;
+}
+
